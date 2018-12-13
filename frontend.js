@@ -33,6 +33,7 @@ function onStartSearchClick() {
 }
 
 function stopSearch() {
+    clearResults();
     sendToServer({
         type: 'stop-search'
     });
