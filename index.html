@@ -1,17 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Kako</title>
+  <title>KakoTo JS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Le styles -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+  </style>
+
 </head>
 
 <body>
 
-<h1>Kako</h1>
+
+<div class="container">
+
+
+  <h1>KakoTo JS</h1>
+  <p>Search code by input/output queries.</p>
+
+  <input type="text" value="[1,2,3]" placeholder="input" class="js-input js-input-1" autocomplete="on">
+  <input type="text" value="[3,2,1]" placeholder="output" class="js-output js-output-1" autocomplete="on">
+  <br>
+  <input type="text" placeholder="input" class="js-input js-input-2">
+  <input type="text" placeholder="output" class="js-output js-output-2">
+  <!--<br>-->
+  <!--<input type="text" placeholder="input" class="js-input js-input-3">-->
+  <!--<input type="text" placeholder="output" class="js-output js-output-3">-->
+  <!--<br>-->
+  <!--<input type="text" placeholder="input" class="js-input js-input-3">-->
+  <!--<input type="text" placeholder="output" class="js-output js-output-3">-->
+
+  <button class="btn btn-primary js-start-search-btn">Search</button>
+  <button class="btn btn-danger js-stop-search-btn">Stop Search</button>
+
+  <br>
+  Results:
+  <pre class="results"></pre>
+
+
+</div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="frontend.js"></script>
 
 </body>
-
 </html>
