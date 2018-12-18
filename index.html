@@ -1,52 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<link>
+  <title>Kako To</title>
   <meta charset="utf-8">
-  <title>KakoTo JS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-  <!-- Le styles -->
-  <link href="css/bootstrap.css" rel="stylesheet">
-  <style>
-    body {
-      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-    }
-  </style>
 
+  <link href="prism/prism.css" rel="stylesheet" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
+
 
 <body>
 
 
 <div class="container">
 
-
   <h1>KakoTo JS</h1>
   <p>Search code by input/output queries.</p>
 
-  <input type="text" value="[1,2,3]" placeholder="input" class="js-input js-input-1" autocomplete="on">
-  <input type="text" value="[3,2,1]" placeholder="output" class="js-output js-output-1" autocomplete="on">
-  <br>
-  <input type="text" placeholder="input" class="js-input js-input-2">
-  <input type="text" placeholder="output" class="js-output js-output-2">
-  <!--<br>-->
-  <!--<input type="text" placeholder="input" class="js-input js-input-3">-->
-  <!--<input type="text" placeholder="output" class="js-output js-output-3">-->
-  <!--<br>-->
-  <!--<input type="text" placeholder="input" class="js-input js-input-3">-->
-  <!--<input type="text" placeholder="output" class="js-output js-output-3">-->
 
-  <button class="btn btn-primary js-start-search-btn">Search</button>
-  <button class="btn btn-danger js-stop-search-btn">Stop Search</button>
+  <div class="row">
+    <div class="col-sm-4">
 
-  <br>
-  Results:
-  <pre class="results"></pre>
+      <input type="text" value="[1, 2, 3] ; 1" placeholder="Input" class="js-input form-control">
+      <input type="text" value="[2, 3, 4]" placeholder="Output" class="js-output js-output-1 form-control">
+      <br>
+      <input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">
+      <input type="text" placeholder="Output" class="js-output js-output-2 form-control">
+      <br>
+      <input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">
+      <input type="text" placeholder="Output" class="js-output js-output-3 form-control">
 
 
+      <br>
+      <button class="btn btn-primary js-start-search-btn">Search</button>
+      <button class="btn btn-danger js-stop-search-btn">Stop Search</button>
+
+
+      <!--<div class="input-group">-->
+        <!--<div class="input-group-prepend">-->
+          <!--<span class="input-group-text">Input</span>-->
+        <!--</div>-->
+        <!--<textarea class="form-control" aria-label="With textarea"></textarea>-->
+      <!--</div>-->
+    </div>
+
+
+    <div class="col-sm-8">
+      Results:
+
+      <div class="highlight">
+        <pre>
+          <code class="results language-javascript">
+  function incArray(arr, by) {
+    for (var i = 0; i < arr.length; i++) {
+      arr[i] += by;
+    }
+
+    return arr;
+  }
+          </code>
+        </pre>
+      </div>
+
+
+    </div>
+  </div>
 </div>
 
+
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="prism/prism.js"></script>
+
 <script src="frontend.js"></script>
 
 </body>

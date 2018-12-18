@@ -33,7 +33,7 @@ function onStartSearchClick() {
 }
 
 function stopSearch() {
-    clearResults();
+    enableStartButton();
     sendToServer({
         type: 'stop-search'
     });
@@ -45,8 +45,17 @@ function sendToServer(message) {
 }
 
 function startSpinner() {
-    $('.js-start-search-btn').html('Please wait ...', 'disabled');
+    $('.js-start-search-btn').html('Please wait ...');
+    disableStartButton();
+}
+
+function disableStartButton() {
     $('.js-start-search-btn').attr('disabled', 'disabled');
+}
+
+function enableStartButton() {
+    $('.js-start-search-btn').html('Search');
+    $('.js-start-search-btn').removeAttr('disabled');
 }
 
 
@@ -54,21 +63,31 @@ function createQuery() {
     let query = [];
 
     $('.js-input').each(function (index) {
-        const inputValue = '[' + $(this).val() + ']';
+        const inputValue = formatInput($(this).val());
         const outputValue = $('.js-output-' + (index + 1)).val();
 
         if (inputValue && outputValue) {
             query.push({
-                input: str2Expr(inputValue),
+                input: inputValue,
                 output: str2Expr(outputValue)
             });
         }
 
     });
-
+    console.log(query);
     return query;
 }
 
+function formatInput(value) {
+    const args = removeSpaces(value).split(';');
+    return args.map(function (arg) {
+        return str2Expr(arg);
+    });
+}
+
+function removeSpaces(e) {
+    return e.replace(/\s+/g, "").toLowerCase();
+}
 
 function connectToServer() {
 
@@ -101,7 +120,8 @@ function connectToServer() {
 }
 
 function onResult(func) {
-    $('.results').append(func + '\n' + '------------------------------------------------------------', '\n');
+    $('.results').append('\n', func, '\n');
+    Prism.highlightAll();
 }
 
 
