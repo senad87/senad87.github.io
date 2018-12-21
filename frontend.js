@@ -112,7 +112,7 @@ function connectToServer() {
         }
 
         if (jsonMessage.type === 'end') {
-            console.log('End reached');
+            onEnd();
         }
     };
 
@@ -122,6 +122,11 @@ function connectToServer() {
 function onResult(func) {
     $('.results').append('\n', func, '\n');
     Prism.highlightAll();
+}
+
+function onEnd() {
+    enableStartButton();
+    console.log('End reached');
 }
 
 
