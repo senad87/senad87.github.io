@@ -2,7 +2,7 @@ let connection;
 
 
 $(function () {
-
+    disableStartButton();
     connection = connectToServer();
 
     $('.js-start-search-btn').on('click', onStartSearchClick);
@@ -98,6 +98,7 @@ function connectToServer() {
 
     connection.onopen = function () {
         // connection is opened and ready to use
+        enableStartButton();
     };
 
     connection.onerror = function (error) {
