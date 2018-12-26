@@ -86,7 +86,7 @@ function formatInput(value) {
 }
 
 function removeSpaces(e) {
-    return e.replace(/\s+/g, "").toLowerCase();
+    return e.replace(/\s+/g, "");
 }
 
 function connectToServer() {
@@ -137,6 +137,11 @@ function clearResults() {
 
 
 function str2Expr(str) {
+
+    if (isQuoted(str)) {
+        return str.slice(1, -1);
+    }
+
     let re = /^[\+\-]?[0-9\.]+,[ ]*\ ?[\+\-]?[0-9\.]+$/;
     let json;
     str = (str.match(re) ? `[${str}]` : str);
@@ -157,6 +162,16 @@ function str2Expr(str) {
     } catch (e) {
         return json;
     }
+}
+
+function isQuoted(arg) {
+    const first = arg[0];
+    const last = arg[arg.length - 1];
+    return isQuote(first) && isQuote(last);
+}
+
+function isQuote(str) {
+    return str === '"' || str === "'";
 }
 
 function createConnection() {
