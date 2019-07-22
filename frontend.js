@@ -1,5 +1,5 @@
 let connection;
-
+let editor;
 
 $(function () {
     disableStartButton();
@@ -8,18 +8,23 @@ $(function () {
     $('.js-start-search-btn').on('click', onStartSearchClick);
     $('.js-stop-search-btn').on('click', stopSearch);
 
+    editor = ace.edit("editor");
+    editor.setTheme("ace/theme/dawn");
+    let JavaScriptMode = ace.require("ace/mode/javascript").Mode;
+    editor.session.setMode(new JavaScriptMode());
 });
 
 
 function onStartSearchClick() {
     startSpinner();
     clearResults();
-
+    console.log(editor.getValue());
     if (!connection) {
         connection = connectToServer();
     }
 
-    let query = createQuery();
+    // let query = createQuery();
+    let query = getQueryFromEditor();
 
     // start search
     if (query.length > 0) {
@@ -101,6 +106,10 @@ function connectToServer() {
         enableStartButton();
     };
 
+    connection.onclose = function () {
+        console.log('connection just close!');
+    };
+
     connection.onerror = function (error) {
         // an error occurred when sending/receiving data
     };
@@ -121,7 +130,8 @@ function connectToServer() {
 }
 
 function onResult(func) {
-    $('.results').append('\n', func, '\n');
+
+    $('.results').append('\n', js_beautify(func, {indent_size: 2, space_in_empty_paren: true}), '\n');
     Prism.highlightAll();
 }
 
@@ -137,7 +147,6 @@ function clearResults() {
 
 
 function str2Expr(str) {
-
     if (isQuoted(str)) {
         return str.slice(1, -1);
     }
@@ -186,3 +195,11 @@ function createConnection() {
 function isLocal() {
     return window.location.href.includes('localhost');
 }
+
+function getQueryFromEditor() {
+    eval(editor.getValue());
+    return query;
+}
+
+
+

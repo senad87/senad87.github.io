@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <link>
-  <title>Search JS</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<title>Search JS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 
-  <link href="prism/prism.css" rel="stylesheet" />
+<link href="prism/prism.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script src="https://pagecdn.io/lib/ace/1.4.5/ace.js" integrity="sha256-5Xkhn3k/1rbXB+Q/DX/2RuAtaB4dRRyQvMs83prFjpM="
+        crossorigin="anonymous"></script>
+<script src="https://pagecdn.io/lib/ace/1.4.5/theme-dawn.js"
+        integrity="sha256-+tlpR6Iv6BcYc6DGFsi6LqklZbTbZJqJB7EdTsEhlSY=" crossorigin="anonymous"></script>
+<script src="https://pagecdn.io/lib/ace/1.4.5/mode-javascript.js"
+        integrity="sha256-9nVHCZW1SuyhaVgqmPk1XutGn+g/ASVBiVAheioldo4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.10.1/beautify.js"></script>
 </head>
 
 
@@ -24,16 +33,30 @@
 
 
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-6">
 
-      <input type="text" value="[1, 2, 3] ; 1" placeholder="Input" class="js-input form-control">
-      <input type="text" value="[2, 3, 4]" placeholder="Output" class="js-output js-output-1 form-control">
-      <br>
-      <input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">
-      <input type="text" placeholder="Output" class="js-output js-output-2 form-control">
-      <br>
-      <input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">
-      <input type="text" placeholder="Output" class="js-output js-output-3 form-control">
+
+      <div id="editor">var query = [
+  {
+    input: ['foo.txt'],
+    output: 'foo'
+  },
+  {
+    input: ['path/name.txt'],
+    output: 'name'
+  }
+];
+      </div>
+
+
+      <!--<input type="text" value="[1, 2, 3] ; 1" placeholder="Input" class="js-input form-control">-->
+      <!--<input type="text" value="[2, 3, 4]" placeholder="Output" class="js-output js-output-1 form-control">-->
+      <!--<br>-->
+      <!--<input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">-->
+      <!--<input type="text" placeholder="Output" class="js-output js-output-2 form-control">-->
+      <!--<br>-->
+      <!--<input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">-->
+      <!--<input type="text" placeholder="Output" class="js-output js-output-3 form-control">-->
 
 
       <br>
@@ -42,26 +65,23 @@
 
 
       <!--<div class="input-group">-->
-        <!--<div class="input-group-prepend">-->
-          <!--<span class="input-group-text">Input</span>-->
-        <!--</div>-->
-        <!--<textarea class="form-control" aria-label="With textarea"></textarea>-->
+      <!--<div class="input-group-prepend">-->
+      <!--<span class="input-group-text">Input</span>-->
+      <!--</div>-->
+      <!--<textarea class="form-control" aria-label="With textarea"></textarea>-->
       <!--</div>-->
     </div>
 
 
-    <div class="col-sm-8">
+    <div class="col-sm-6">
       Results:
       <div class="highlight">
         <pre>
           <code class="results language-javascript">
-  function incArray(arr, by) {
-    for (var i = 0; i < arr.length; i++) {
-      arr[i] += by;
-    }
-
-    return arr;
-  }
+function getFileNameFromPath(filePath) {
+  var aux = filePath.split("/").pop().split(".");
+  return (aux[0] != "" ? aux[0] : aux[1]);
+}
           </code>
         </pre>
       </div>
@@ -70,7 +90,6 @@
     </div>
   </div>
 </div>
-
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
