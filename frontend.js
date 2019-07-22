@@ -12,6 +12,7 @@ $(function () {
     editor.setTheme("ace/theme/dawn");
     let JavaScriptMode = ace.require("ace/mode/javascript").Mode;
     editor.session.setMode(new JavaScriptMode());
+    editor.renderer.setShowGutter(false);
 });
 
 
