@@ -13,6 +13,7 @@ $(function () {
     let JavaScriptMode = ace.require("ace/mode/javascript").Mode;
     editor.session.setMode(new JavaScriptMode());
     editor.renderer.setShowGutter(false);
+    document.getElementById('editor').style.fontSize='14px';
 });
 
 
@@ -198,8 +199,15 @@ function isLocal() {
 }
 
 function getQueryFromEditor() {
+    let ret;
     eval(editor.getValue());
-    return query;
+    try {
+        ret = query;
+    } catch(e) {
+        alert('Invalid query.');
+        location.reload();
+    }
+    return ret;
 }
 
 

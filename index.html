@@ -26,17 +26,16 @@
 <body>
 
 
-<div class="container">
+<div class="d-md-flex h-md-100 align-items-center">
 
-  <h1>Search JS</h1>
-  <p>Search JavaScript functions by input/output queries.</p>
+  <!-- First Half -->
+
+  <div class="col-md-6 p-0 bg-indigo h-md-100">
+    <div class="text-white d-md-flex align-items-center h-100 text-center justify-content-center">
+      <!--<div class="logoarea pt-5 pb-5">-->
 
 
-  <div class="row">
-    <div class="col-sm-6">
-
-
-      <div id="editor">var query = [
+        <div id="editor">var query = [
   {
     input: ['foo.txt'],
     output: 'foo'
@@ -46,35 +45,38 @@
     output: 'name'
   }
 ];
-      </div>
+        </div>
 
 
-      <!--<input type="text" value="[1, 2, 3] ; 1" placeholder="Input" class="js-input form-control">-->
-      <!--<input type="text" value="[2, 3, 4]" placeholder="Output" class="js-output js-output-1 form-control">-->
-      <!--<br>-->
-      <!--<input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">-->
-      <!--<input type="text" placeholder="Output" class="js-output js-output-2 form-control">-->
-      <!--<br>-->
-      <!--<input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">-->
-      <!--<input type="text" placeholder="Output" class="js-output js-output-3 form-control">-->
+        <!--<input type="text" value="[1, 2, 3] ; 1" placeholder="Input" class="js-input form-control">-->
+        <!--<input type="text" value="[2, 3, 4]" placeholder="Output" class="js-output js-output-1 form-control">-->
+        <!--<br>-->
+        <!--<input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">-->
+        <!--<input type="text" placeholder="Output" class="js-output js-output-2 form-control">-->
+        <!--<br>-->
+        <!--<input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">-->
+        <!--<input type="text" placeholder="Output" class="js-output js-output-3 form-control">-->
 
 
-      <br>
-      <button class="btn btn-primary js-start-search-btn">Search</button>
-      <button class="btn btn-danger js-stop-search-btn">Stop Search</button>
+        <br>
+        <button class="btn btn-primary js-start-search-btn">Search</button>
+        <button class="btn btn-danger js-stop-search-btn">Stop Search</button>
 
 
-      <!--<div class="input-group">-->
-      <!--<div class="input-group-prepend">-->
-      <!--<span class="input-group-text">Input</span>-->
-      <!--</div>-->
-      <!--<textarea class="form-control" aria-label="With textarea"></textarea>-->
+        <!--<div class="input-group">-->
+        <!--<div class="input-group-prepend">-->
+        <!--<span class="input-group-text">Input</span>-->
+        <!--</div>-->
+        <!--<textarea class="form-control" aria-label="With textarea"></textarea>-->
+        <!--</div>-->
       <!--</div>-->
     </div>
+  </div>
 
+  <!-- Second Half -->
 
-    <div class="col-sm-6">
-      Results:
+  <div class="col-md-6 p-0 bg-white h-md-100 loginarea">
+    <div class="d-md-flex align-items-center h-md-100 justify-content-center">
       <div class="highlight">
         <pre>
           <code class="results language-javascript">
@@ -85,11 +87,76 @@ function getFileNameFromPath(filePath) {
           </code>
         </pre>
       </div>
-
-
     </div>
   </div>
+
 </div>
+
+
+<!--<div class="container">-->
+
+<!--<h1>Search JS</h1>-->
+<!--<p>Search JavaScript functions by input/output queries.</p>-->
+
+
+<!--<div class="row">-->
+<!--<div class="col-sm-4">-->
+
+
+<!--<div id="editor">var query = [-->
+<!--{-->
+<!--input: ['foo.txt'],-->
+<!--output: 'foo'-->
+<!--},-->
+<!--{-->
+<!--input: ['path/name.txt'],-->
+<!--output: 'name'-->
+<!--}-->
+<!--];-->
+<!--</div>-->
+
+
+<!--&lt;!&ndash;<input type="text" value="[1, 2, 3] ; 1" placeholder="Input" class="js-input form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="text" value="[2, 3, 4]" placeholder="Output" class="js-output js-output-1 form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;<br>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="text" placeholder="Output" class="js-output js-output-2 form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;<br>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="text" placeholder="Input (arg1 ; arg2 ; ... argN)" class="js-input form-control">&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="text" placeholder="Output" class="js-output js-output-3 form-control">&ndash;&gt;-->
+
+
+<!--<br>-->
+<!--<button class="btn btn-primary js-start-search-btn">Search</button>-->
+<!--<button class="btn btn-danger js-stop-search-btn">Stop Search</button>-->
+
+
+<!--&lt;!&ndash;<div class="input-group">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="input-group-prepend">&ndash;&gt;-->
+<!--&lt;!&ndash;<span class="input-group-text">Input</span>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<textarea class="form-control" aria-label="With textarea"></textarea>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+
+
+<!--<div class="col-sm-8">-->
+<!--Results:-->
+<!--<div class="highlight">-->
+<!--<pre>-->
+<!--<code class="results language-javascript">-->
+<!--function getFileNameFromPath(filePath) {-->
+<!--var aux = filePath.split("/").pop().split(".");-->
+<!--return (aux[0] != "" ? aux[0] : aux[1]);-->
+<!--}-->
+<!--</code>-->
+<!--</pre>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
