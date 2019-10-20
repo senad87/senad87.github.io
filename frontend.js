@@ -189,7 +189,7 @@ function createConnection() {
     if (isLocal()) {
         return new WebSocket('ws://localhost:5000');
     } else {
-        return new WebSocket('wss://zito-alf.herokuapp.com');
+        return new WebSocket('wss://212.115.110.118:5000');
     }
 }
 
