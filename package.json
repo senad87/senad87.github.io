@@ -1,0 +1,23 @@
+{
+  "name": "senad87.github.io",
+  "version": "1.0.0",
+  "description": "frontend for code search",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/senad87/senad87.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/senad87/senad87.github.io/issues"
+  },
+  "homepage": "https://github.com/senad87/senad87.github.io#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
