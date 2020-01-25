@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "start:prod": "nohup node senad87.github.io/server.js &"
+    "start:prod": "nohup node server.js &"
   },
   "repository": {
     "type": "git",
