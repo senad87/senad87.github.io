@@ -27,9 +27,9 @@ function onStartSearchClick() {
   startSpinner();
   clearResults();
   console.log(editor.getValue());
-  if (!connection) {
-    connection = connectToServer();
-  }
+  // if (!connection) {
+  //   connection = connectToServer();
+  // }
 
   // let query = createQuery();
   let query = getQueryFromEditor();
@@ -102,7 +102,7 @@ function connectToServer() {
   // if user is running mozilla then use it's built-in WebSocket
   window.WebSocket = window.WebSocket || window.MozWebSocket;
 
-  let connection = createConnection();
+  connection = createConnection();
 
   connection.onopen = function() {
     // connection is opened and ready to use
@@ -110,7 +110,7 @@ function connectToServer() {
   };
 
   connection.onclose = function() {
-    connection = createConnection();
+    connectToServer();
     console.log("connection just close, reconnecting");
   };
 
@@ -311,6 +311,6 @@ function setDefaultEditorContent() {
             }
           ];`);
   } else {
-    editor.setValue(savedContent);
+    editor.setValue(savedContent || "");
   }
 }
