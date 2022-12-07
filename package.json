@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/senad87/senad87.github.io#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.18.2"
   }
 }
